@@ -2,8 +2,6 @@
  <h1>All Notes</h1>
 </div> 
 
-<%= link_to "Make a New Note", new_note_path, class: "btn btn-success" %>
-
 <% @notes.each do |note| %>
 <div class="note">
  <strong><%= note.user.full_name %></strong>
@@ -19,3 +17,6 @@
  </div>
 </div> 
 <% end %>
+<br>
+
+<%= link_to "Make a New Note", new_note_path, class: "btn btn-success" %>
