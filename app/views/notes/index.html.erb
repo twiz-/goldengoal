@@ -6,7 +6,7 @@
 
 <% @notes.each do |note| %>
 <div class="note">
- <strong><%= note.name %></strong>
+ <strong><%= note.user.full_name %></strong>
  <p><%= note.comments %></p>
  <p><%= note.practice %></p>
  <div class="meta">
