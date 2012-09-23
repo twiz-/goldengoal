@@ -2,21 +2,27 @@
  <h1>All Notes</h1>
 </div> 
 
-<% @notes.each do |note| %>
-<div class="note">
- <strong><%= note.user.full_name %></strong>
- <p><%= note.comments %></p>
- <p><%= note.practice %></p>
- <div class="meta">
-  <%= link_to time_ago_in_words(note.created_at) + " ago", note %>
-  <span class="admin">
-    | <%= link_to "Edit", edit_note_path(note) %> |
-    <%= link_to "Delete",note, method: :delete, data: { confirm: "are you sure you want to delete note?"} %>
-    
-  </span>
- </div>
-</div> 
-<% end %>
+<div id="notes">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @notes_by_date[date] %>
+     <ul>
+      <% @notes_by_date[date].each do |note| %>
+        <li><%= link_to note.user.full_name, note %></li>
+      <% end %>
+     </ul>
+    <% end %>
+  <% end %>  
+</div>
+
 <br>
 
 <%= link_to "Make a New Note", new_note_path, class: "btn btn-success" %>
+
+

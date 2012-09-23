@@ -3,7 +3,9 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = Note.all
-
+    @notes_by_date = @notes.group_by(&:practice)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notes }
