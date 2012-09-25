@@ -1,25 +1,30 @@
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @note.user.full_name %>
-</p>
+<div class="well">  
+  <div class="note">  
+      <b>Name:</b>
+      <%= @note.user.full_name %>
+    </p>
 
-<p>
-  <b>Comments:</b>
-  <%= @note.comments %>
-</p>
+    <p>
+      <b>Comments:</b>
+      <%= auto_link(@note.comments, :target => "_blank") %>
+    </p>
 
-<p>
-  <b>Practice:</b>
-  <%= @note.practice.strftime("%m/%d/%Y") %>
-</p>
+    <p>
+      <b>Practice:</b>
+      <%= @note.practice.strftime("%m/%d/%Y") %>
+    </p>
 
-<p>
-  <b>Practice Image:</b>
-  <%= image_tag @note.image_url(:thumb).to_s %>
-</p>
-
+    <p>
+      <b>Practice Image:</b>
+      <%= image_tag @note.image_url(:thumb).to_s %>
+    </p>
+  </div>
+</div>
 
 
 <%= link_to 'Edit', edit_note_path(@note) %> |

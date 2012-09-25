@@ -11,10 +11,6 @@
 	margin: 4px 0px;
 }
 
-.note.hover {
-	background: #FAFAFA;
-}
-
 .note .admin {
 	display: none;
 }
@@ -35,14 +31,14 @@
   }
 
   th {
-    background: #DDD;
+    background: #DDD; /*change header calendar*/
     color: #666;
     text-align: center;
     width: 14.2857142857143%;
   }
 
   td {
-    background: #FFF;
+    background: #FFF; /* To change cell bg*/
     color: #777;
     height: 80px;
     vertical-align: top;
