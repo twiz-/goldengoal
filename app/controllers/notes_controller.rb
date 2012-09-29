@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_filter :authenticate_user!, only: [:new]
   # GET /notes
   # GET /notes.json
   def index

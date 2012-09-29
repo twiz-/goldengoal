@@ -11,14 +11,21 @@ class NotesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:notes)
   end
 
-  test "should get new" do
+  test "should be redirected when not logged in" do
+    get :new
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+  
+  test "should render the new page when logges in" do
+    sign_in users(:tony)
     get :new
     assert_response :success
   end
 
   test "should create note" do
     assert_difference('Note.count') do
-      post :create, note: { comments: @note.comments, name: @note.name, practice: @note.practice }
+      post :create, note: { comments: @note.comments, practice: @note.practice }
     end
 
     assert_redirected_to note_path(assigns(:note))
@@ -35,7 +42,7 @@ class NotesControllerTest < ActionController::TestCase
   end
 
   test "should update note" do
-    put :update, id: @note, note: { comments: @note.comments, name: @note.name, practice: @note.practice }
+    put :update, id: @note, note: { comments: @note.comments, practice: @note.practice }
     assert_redirected_to note_path(assigns(:note))
   end
 
