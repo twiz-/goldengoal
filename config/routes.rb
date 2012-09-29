@@ -1,4 +1,6 @@
 Goldengoal::Application.routes.draw do
+  resources :logistics
+
   devise_for :users
 
   resources :notes

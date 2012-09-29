@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   has_many :notes
+  has_many :logistics
+  
   
   def full_name
     first_name  + " " + last_name
