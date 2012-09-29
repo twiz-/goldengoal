@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
   comments: MyText
   practice: 2012-09-22
 
 two:
-  name: MyString
   comments: MyText
   practice: 2012-09-22
