@@ -5,7 +5,8 @@ class Note < ActiveRecord::Base
   validates :comments, presence: true,
                      length: { minimum: 2}
                      
-  validates :user_id, presence: true                   
+  validates :user_id, presence: true 
+  validates :practice, presence: true                   
                       
   mount_uploader :image, ImageUploader
   

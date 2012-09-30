@@ -1,4 +1,6 @@
 class LogisticsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+  
   # GET /logistics
   # GET /logistics.json
   def index

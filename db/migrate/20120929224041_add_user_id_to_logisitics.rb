@@ -1,4 +1,4 @@
-class AddUserIdToLogisitics < ActiveRecord::Migration
+class AddUserIdToLogistics < ActiveRecord::Migration
   def change
     add_column :logistics, :user_id, :integer
     add_index :logistics, :user_id
