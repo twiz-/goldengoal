@@ -21,7 +21,19 @@
 
     <p>
       <b>Practice Image:</b>
-      <%= image_tag @note.image_url(:thumb).to_s %>
+      <% if @note.image_url(:thumb).to_s.empty? %>
+       <p><em>No image included</em></p>
+      <% else %> 
+       <%= image_tag @note.image_url(:thumb).to_s %>
+      <% end %> 
+    </p>
+    <p>
+      <b>Youtube Link:</b>
+      <% if @note.link.empty? %>
+       <p><em>No video included</em></p>
+      <% else %>
+        <%= youtube_embed(@note.link).html_safe %>
+      <% end %>  
     </p>
   </div>
 </div>

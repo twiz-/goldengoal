@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-  attr_accessible :comments, :practice, :user_id, :image, :remote_image_url
+  attr_accessible :comments, :practice, :user_id, :image, :remote_image_url,:link
   
   belongs_to :user
   validates :comments, presence: true,
