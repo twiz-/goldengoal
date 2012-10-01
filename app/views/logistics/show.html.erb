@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @logistic.user.full_name %>
-</p>
+<div class="well">
+  <div class="logistic">
+    <p>
+      <b>Name:</b>
+      <%= @logistic.user.full_name %>
+    </p>
 
-<p>
-  <b>Content:</b>
-  <%= @logistic.content %>
-</p>
-
-
+    <p>
+      <b>Content:</b>
+      <%= @logistic.content %>
+    </p>
+  </div>
+</div>
 <%= link_to 'Edit', edit_logistic_path(@logistic) %> |
 <%= link_to 'Back', logistics_path %>

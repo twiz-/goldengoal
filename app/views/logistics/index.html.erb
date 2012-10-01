@@ -1,58 +1,58 @@
 <div class="page-header">
  <h1>Team News</h1>
 </div>
-<div class="row">
-  <div class="span-one-third">
-    <h3>Practice</h3>
-    <% @logistics.each do |logistic| %>
-     <div class="logistic">
-      <strong><%= logistic.user.full_name %></strong>
-      <p><%= logistic.content %></p>
-      <div class="meta">
-      <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %>
-      <span class="admin">
-        <%= link_to "Edit", edit_logistic_path(logistic) %> |
-        <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %>
-      </span>
-      </div>
-     </div>
-  </div>
-    
-    <% end %>
-  <div class="span-one-thrid">
-    <h3>Game</h3>
-    <% @logistics.each do |logistic| %>
-     <div class="logistic">
-      <strong><%= logistic.user.full_name %></strong>
-      <p><%= logistic.content %></p>
-      <div class="meta">
-      <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %>
-      <span class="admin">
-        <%= link_to "Edit", edit_logistic_path(logistic) %> |
-        <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %>
-      </span>
-      </div>
-     </div>
-    <% end %> 
-  </div>
-  <div class="span-one-third">
-    <h3>Etc.</h3>
-    <% @logistics.each do |logistic| %>
-     <div class="logistic">
-      <strong><%= logistic.user.full_name %></strong>
-      <p><%= logistic.content %></p>
-      <div class="meta">
-      <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %>
-      <span class="admin">
-        <%= link_to "Edit", edit_logistic_path(logistic) %> |
-        <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %>
-      </span>
-      </div>
-     </div>
-    <% end %> 
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4 hero-unit">
+      <h3>Practice</h3>
+       <% @logistics.each do |logistic| %>
+       <div class="logistic">
+        <strong><%= logistic.user.full_name %></strong>
+        <p><%= logistic.content %></p>
+        <div class="meta">
+        <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %>
+        <span class="admin">
+          <%= link_to "Edit", edit_logistic_path(logistic) %> |
+          <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %>
+        </span>
+        </div>
+       </div>
+      <% end %>
+    </div>
+    <div class="span4 hero-unit">
+      <h3>Game</h3>
+      <% @logistics.each do |logistic| %>
+       <div class="logistic">
+        <strong><%= logistic.user.full_name %></strong>
+        <p><%= logistic.content %></p>
+        <div class="meta">
+        <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %>
+        <span class="admin">
+          <%= link_to "Edit", edit_logistic_path(logistic) %> |
+          <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %>
+        </span>
+        </div>
+       </div>
+      <% end %> 
+    </div>
+    <div class="span4 hero-unit">
+      <h3>Etc.</h3>
+      <% @logistics.each do |logistic| %>
+       <div class="logistic">
+        <strong><%= logistic.user.full_name %></strong>
+        <p><%= logistic.content %></p>
+        <div class="meta">
+        <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %>
+        <span class="admin">
+          <%= link_to "Edit", edit_logistic_path(logistic) %> |
+          <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %>
+        </span>
+        </div>
+       </div>
+      <% end %> 
+    </div>
   </div>
 </div>
-
 <%= link_to 'New Logistic', new_logistic_path %>
 
 <!-- add a tag field to the form of either practice, game, or etc then use an if conditional to check that tag and to display otherwise don't display anything -->
