@@ -8,7 +8,7 @@
        <% @logistics.each do |logistic| %>
        <div class="logistic">
         <strong><%= logistic.user.full_name %></strong>
-        <p class="lead"><%= logistic.content %></p>
+        <p><%= logistic.content %></p>
         <div class="meta">
         <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %>
         <span class="admin">
