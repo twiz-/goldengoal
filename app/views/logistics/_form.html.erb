@@ -4,6 +4,9 @@
     <div class="field">
      <%= f.input :user_id, collection: User.all, label_method: :full_name %>
     </div>
+    
+    <%= f.input :logistic_title, :label => "Practice, Game, or Etc.", :collection => ["Practice","Game", "Etc."], :selected => "Practice" %>
+    
     <div class="field"> 
      <%= f.input :content %>
     </div> 

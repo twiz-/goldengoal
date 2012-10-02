@@ -11,7 +11,7 @@
 
     <p>
       <b>Comments:</b>
-      <%= auto_link(@note.comments, :target => "_blank") %>
+      <%= auto_link(@note.comments, :html => { :target => '_blank' } ) %>
     </p>
 
     <p>
