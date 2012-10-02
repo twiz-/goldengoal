@@ -3,5 +3,10 @@ tony:
     last_name: "Ramirez"
     email: "tony.michaelramirez@gmail.com"
     profile_name: "tmacram"
-    # password: "password"
-    #  password_confirmation: "password"
+   
+   
+james:
+    first_name: "James"
+    last_name: "Ramirez"
+    email: "mar69@humboldt.edu"
+    profile_name: "routehere"

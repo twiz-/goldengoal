@@ -1,0 +1,15 @@
+<div class="page-header" >
+  <h1><%= @user.full_name %></h1>
+</div>
+
+
+<% if @players.empty? %>
+ <a href="#">Add your players</a>
+<% else %>
+  <% @players.each do |player| %>
+   <div class="well span3">
+      <%= player.player_name %>
+    <hr />
+   </div>
+  <% end %>
+<% end %>

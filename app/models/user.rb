@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   
   has_many :notes
   has_many :logistics
+  has_many :players
   
   
   def full_name

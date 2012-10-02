@@ -1,17 +1,23 @@
 Goldengoal::Application.routes.draw do
+  get "profiles/show"
+
+  resources :players
+
   devise_for :users
   
   devise_scope :user do #this is how you seperate between player and parent what they can see
     get 'register', to: "devise/registrations#new", as: :register
-    get "login",    to: "devise/sessions#new", as: :login
-    get "logout",   to: "devise/sessions#destroy", as: :logout
+    get 'login',    to: "devise/sessions#new", as: :login
+    get 'logout',   to: "devise/sessions#destroy", as: :logout
   end
   
   resources :logistics
  
   resources :notes
   
-  root :to => "notes#index"
+  root :to => 'notes#index'
+  
+  get '/:id', to: 'profiles#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

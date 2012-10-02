@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  player_name: MyString
+  user: tony
+
+two:
+  player_name: MyString
+  user: tony
+  
+three:
+  player_name: "Steven Gerrard"
+  user: james
