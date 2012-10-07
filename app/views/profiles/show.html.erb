@@ -1,19 +1,12 @@
 <div class="page-header" >
-  <h3 class="pull-right">team attention</h3>
-  <h1><%= @user.full_name %></h1>
+  <h1><%= @user.full_name %> <span class="pull-right">Command Center</span></h1>
+</div>
+
+<div>
+  <span class="well span3">View All my <%= link_to "Players", players_path%></span>
+  <span class="well span3">View All my <%= link_to "Note", notes_path%></span>
+  <span class="well span3">View All my <%= link_to "Logistics", logistics_path%></span>
 
 </div>
 
-<div class="span12 offset1">
-  <% if @players.empty? %>
-   <a href="#">Add your players</a>
-  <% else %>
-    <% @players.each do |player| %>
-     <div class="well span3">
-        <%= link_to player.player_name, "player#show" %>
-      <hr />
-     </div>
-    <% end %>
-  <% end %>
-</div>
-<div class="btn affix"><%= link_to 'Add Player', new_player_path %></div
+

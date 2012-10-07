@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Player name:</b>
-  <%= @player.player_name %>
-</p>
-
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<h2 class="page-header">
+<%= @player.player_name %>
+</h2>
+<aside>
+  <div class="affix btn-grp">
+    <button class="btn"><%= link_to 'Edit Player', edit_player_path(@player) %></button>
+    <button class="btn"><%= link_to 'Back to Team', players_path %></button>
+    
+  </div>
+</aside>  

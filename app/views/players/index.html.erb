@@ -1,23 +1,24 @@
-<h1>Listing players</h1>
+<div class="page-header" >
+  <h3 class="pull-right">Team Attention</h3>
+  <h1>My Player's</h1>
+</div>
 
-<table>
-  <tr>
-    <th>Player name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @players.each do |player| %>
-  <tr>
-    <td><%= player.player_name %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div class="span12 offset1">
+  <% if @players.empty? %>
+   <a href="#">Add your players</a>
+  <% else %>
+    <% @players.each do |player| %>
+     <div class="well player_index span3">
+        <%= link_to player.player_name, player %><br>
+        <%= link_to 'Edit', edit_player_path(player) %> | 
 
-<br />
+        <%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %>
+      
+      <hr />
+     </div>
+    <% end %>
+  <% end %>
+</div>
+<span class='btn affix'><%= link_to 'Add Player', new_player_path %></span>
 
-<%= link_to 'New Player', new_player_path %>
