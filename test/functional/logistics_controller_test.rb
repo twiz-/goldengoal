@@ -52,12 +52,10 @@ class LogisticsControllerTest < ActionController::TestCase
 
   test "should get edit when logged in" do
     sign_in users(:tony)
-    
     get :edit, id: @logistic
     assert_response :success
   end
-  
-  
+    
   test "should redirect logistic update when not logged in" do
     put :update, id: @logistic, logistic: { content: @logistic.content }
     assert_response :redirect
@@ -66,7 +64,6 @@ class LogisticsControllerTest < ActionController::TestCase
 
   test "should update logistic when logged in" do
     sign_in users(:tony)
-    
     put :update, id: @logistic, logistic: { content: @logistic.content }
     assert_redirected_to logistic_path(assigns(:logistic))
   end

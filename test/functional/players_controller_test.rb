@@ -11,12 +11,27 @@ class PlayersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:players)
   end
 
-  test "should get new" do
+  test "should be redirected when not logged in" do
     get :new
-    assert_response :success
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+  
+  test "should render the new page when logged in" do
+    sign_in users(:tony)
+    get :new
+    assert_response :success 
+  end
+  
+  test "should be logged in to post a new player" do
+    post :create, player: { player_name: "Tony Ramirez" }
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
   end
 
-  test "should create player" do
+  test "should create player when logged in" do
+    sign_in users(:tony)
+    
     assert_difference('Player.count') do
       post :create, player: { player_name: @player.player_name }
     end
@@ -28,13 +43,27 @@ class PlayersControllerTest < ActionController::TestCase
     get :show, id: @player
     assert_response :success
   end
+  
+  test "should redirect player edit only when logged in" do    
+    get :edit, id: @player
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
 
-  test "should get edit" do
+  test "should get edit when logged in" do
+    sign_in users(:tony)
     get :edit, id: @player
     assert_response :success
   end
+  
+  test "should redirect player update when not logged in" do
+    put :update, id: @player, player: { player_name: @player.player_name }
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
 
-  test "should update player" do
+  test "should update player when logged in" do
+    sign_in users(:tony)
     put :update, id: @player, player: { player_name: @player.player_name }
     assert_redirected_to player_path(assigns(:player))
   end
