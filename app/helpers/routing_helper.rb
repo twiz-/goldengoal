@@ -20,10 +20,6 @@ module RoutingHelper
     profile_player_path(profile_name, player)
   end
 
-  def new_note_path 
-    new_profile_note_path(profile_name)
-  end
-
   def new_logistic_path(*options)
     new_profile_logistic_path(profile_name, *options)
   end
@@ -38,6 +34,10 @@ module RoutingHelper
 
   def edit_logistic_path(logistic_path) 
     edit_profile_logistic_path(profile_name, logistic_path)
+  end
+
+  def new_note_path 
+    new_profile_note_path(profile_name)
   end
 
   def notes_path(*options)
