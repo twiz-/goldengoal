@@ -6,7 +6,7 @@ class PrivateController < ApplicationController
   protected 
   
   def find_user
-    @user = User.find_by_profile_name!(params[:id])
+    @user = User.find_by_profile_name!(params[:profile_id])
   end
 
   def guard_user

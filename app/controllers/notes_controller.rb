@@ -1,9 +1,8 @@
-class NotesController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+class NotesController < PrivateController 
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = @user.notes.all
     @notes_by_date = @notes.group_by(&:practice)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     
@@ -16,7 +15,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
-    @note = Note.find(params[:id])
+    @note = @user.notes.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +26,7 @@ class NotesController < ApplicationController
   # GET /notes/new
   # GET /notes/new.json
   def new
-    @note = Note.new
+    @note = @user.notes.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,13 +36,13 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
-    @note = Note.find(params[:id])
+    @note = @user.notes.find(params[:id])
   end
 
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(params[:note])
+    @note = @user.notes.new(params[:note])
 
     respond_to do |format|
       if @note.save

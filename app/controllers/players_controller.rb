@@ -1,10 +1,10 @@
-class PlayersController < ApplicationController
+class PlayersController < PrivateController
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit]
   
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    @players = @user.players.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
-    @player = Player.find(params[:id])
+    @player = @user.players.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,7 @@ class PlayersController < ApplicationController
   # GET /players/new
   # GET /players/new.json
   def new
-    @player = Player.new
+    @player = @user.players.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +36,13 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-    @player = Player.find(params[:id])
+    @player = @user.players.find(params[:id])
   end
 
   # POST /players
   # POST /players.json
   def create
-    @player = Player.new(params[:player])
+    @player = @user.players.new(params[:player])
 
     respond_to do |format|
       if @player.save
@@ -58,7 +58,7 @@ class PlayersController < ApplicationController
   # PUT /players/1
   # PUT /players/1.json
   def update
-    @player = Player.find(params[:id])
+    @player = @user.players.find(params[:id])
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
@@ -74,7 +74,7 @@ class PlayersController < ApplicationController
   # DELETE /players/1
   # DELETE /players/1.json
   def destroy
-    @player = Player.find(params[:id])
+    @player = @user.players.find(params[:id])
     @player.destroy
 
     respond_to do |format|

@@ -1,10 +1,9 @@
-class LogisticsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+class LogisticsController < PrivateController
   
   # GET /logistics
   # GET /logistics.json
   def index
-    @logistics = Logistic.all
+    @logistics = @user.logistics.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +14,7 @@ class LogisticsController < ApplicationController
   # GET /logistics/1
   # GET /logistics/1.json
   def show
-    @logistic = Logistic.find(params[:id])
+    @logistic = @user.logistics.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +25,7 @@ class LogisticsController < ApplicationController
   # GET /logistics/new
   # GET /logistics/new.json
   def new
-    @logistic = Logistic.new
+    @logistic = @user.logistics.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +35,13 @@ class LogisticsController < ApplicationController
 
   # GET /logistics/1/edit
   def edit
-    @logistic = Logistic.find(params[:id])
+    @logistic = @user.logistics.find(params[:id])
   end
 
   # POST /logistics
   # POST /logistics.json
   def create
-    @logistic = Logistic.new(params[:logistic])
+    @logistic = @user.logistics.new(params[:logistic])
 
     respond_to do |format|
       if @logistic.save
@@ -58,7 +57,7 @@ class LogisticsController < ApplicationController
   # PUT /logistics/1
   # PUT /logistics/1.json
   def update
-    @logistic = Logistic.find(params[:id])
+    @logistic = @user.logistics.find(params[:id])
 
     respond_to do |format|
       if @logistic.update_attributes(params[:logistic])
@@ -74,7 +73,7 @@ class LogisticsController < ApplicationController
   # DELETE /logistics/1
   # DELETE /logistics/1.json
   def destroy
-    @logistic = Logistic.find(params[:id])
+    @logistic = @user.logistics.find(params[:id])
     @logistic.destroy
 
     respond_to do |format|
