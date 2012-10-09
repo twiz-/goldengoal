@@ -1,5 +1,5 @@
 Goldengoal::Application.routes.draw do
-  get "profiles/show"
+  # get "profiles/show", :as => 'profile'
 
   resources :players
 
@@ -17,7 +17,7 @@ Goldengoal::Application.routes.draw do
   
   root :to => 'notes#index'
   
-  get '/:id', to: 'profiles#show'
+  get '/:id', to: 'profiles#show', as: 'profile'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
