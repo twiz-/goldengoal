@@ -46,7 +46,7 @@ class LogisticsController < ApplicationController
 
     respond_to do |format|
       if @logistic.save
-        format.html { redirect_to @logistic, notice: 'Logistic was successfully created.' }
+        format.html { redirect_to logistic_path(@logistic), notice: 'Logistic was successfully created.' }
         format.json { render json: @logistic, status: :created, location: @logistic }
       else
         format.html { render action: "new" }

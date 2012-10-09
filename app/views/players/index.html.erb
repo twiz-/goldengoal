@@ -11,7 +11,7 @@
     <% @players.each do |player| %>
      <div class="well player_index span3">
         <%= link_to player.player_name, player %><br>
-        <%= link_to 'Edit', edit_player_path(player) %> | 
+        <%= link_to 'Edit', edit_profile_player_path(current_user.profile_name, player) %> | 
 
         <%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %>
       

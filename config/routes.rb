@@ -8,7 +8,7 @@ Goldengoal::Application.routes.draw do
     get 'logout',   to: "devise/sessions#destroy", as: :logout
   end
   
-  root :to => 'notes#index'
+  root :to => 'front#index'
   
   resources :profiles, path: '', only: [:show] do
     resources :players
