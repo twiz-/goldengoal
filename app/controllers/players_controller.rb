@@ -1,5 +1,4 @@
 class PlayersController < PrivateController
-  before_filter :authenticate_user!, only: [:new, :create, :update, :edit]
   
   # GET /players
   # GET /players.json
