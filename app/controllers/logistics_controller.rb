@@ -62,7 +62,7 @@ class LogisticsController < ApplicationController
 
     respond_to do |format|
       if @logistic.update_attributes(params[:logistic])
-        format.html { redirect_to @logistic, notice: 'Logistic was successfully updated.' }
+        format.html { redirect_to logistic_path(@logistic), notice: 'Logistic was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

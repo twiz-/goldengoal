@@ -24,24 +24,32 @@ module RoutingHelper
     new_profile_note_path(profile_name)
   end
 
-  def new_logistic_path
-    new_profile_logistic_path(profile_name) 
+  def new_logistic_path(*options)
+    new_profile_logistic_path(profile_name, *options)
   end
 
-  def new_logistic_path
-    new_profile_logistic_path(profile_name)
+  def logistic_path(logistic, *options)
+    profile_logistic_path(profile_name, logistic, *options)
   end
 
-  def logistic_path(logistic)
-    profile_logistic_path(profile_name, logistic)
-  end
-
-  def logistics_path
-    profile_logistics_path(profile_name)
+  def logistics_path(*options)
+    profile_logistics_path(profile_name, *options)
   end
 
   def edit_logistic_path(logistic_path) 
     edit_profile_logistic_path(profile_name, logistic_path)
+  end
+
+  def notes_path(*options)
+    profile_notes_path(profile_name, *options)
+  end
+
+  def note_path(note, *options) 
+    profile_note_path(profile_name, note, *options)
+  end
+
+  def edit_note_path(note)
+    edit_profile_note_path(profile_name, note)
   end
 
   private
