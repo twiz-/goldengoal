@@ -16,3 +16,4 @@
 
 .DS_store
 .rbenv-version
+*.swp
