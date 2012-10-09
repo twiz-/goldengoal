@@ -4,6 +4,10 @@ module RoutingHelper
   # removing the need to explicitly express the current user
   # as an option for each route.
   #
+  def new_player_path
+    new_profile_player_path(profile_name)
+  end
+
   def edit_player_path(player) 
     edit_profile_player_path(profile_name, player)
   end
