@@ -11,21 +11,23 @@
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="#">Golden Goal</a>
-      <ul class="nav">
-        <li><%= link_to "Players", players_path %></li>
-        <li><%= link_to "Coach Notes", notes_path %></li>
-        <li><%= link_to "Logisitics", logistics_path %></li>
-      </ul>
-      <ul class="nav pull-right">
-        <% if user_signed_in? %>
+
+      <% if user_signed_in? %>
+        <ul class="nav">
+          <li><%= link_to "Players", profile_players_path(current_user.profile_name) %></li>
+          <li><%= link_to "Coach Notes", profile_notes_path(current_user.profile_name) %></li>
+          <li><%= link_to "Logisitics", profile_logistics_path(current_user.profile_name) %></li>
+        </ul>
+        <ul class="nav pull-right">
           <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
-          
-        <% else %>
+        </ul>
+      <% else %>
+        <ul class="nav pull-right">
           <li><%= link_to "Sign Up", register_path %></li>  
           <li><%= link_to "Log In", login_path %></li>
+        </ul>
         <% end %>  
-      </ul>
     </div>
   </div>
  </div>  
