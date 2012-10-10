@@ -46,7 +46,7 @@ class NotesController < PrivateController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to(note_path(@note), notice: 'Note was successfully created.') }
+        format.html { redirect_to(user_note_path(@user, @note), notice: 'Note was successfully created.') }
         format.json { render json: @note, status: :created, location: @note }
       else
         format.html { render action: "new" }
@@ -58,11 +58,11 @@ class NotesController < PrivateController
   # PUT /notes/1
   # PUT /notes/1.json
   def update
-    @note = Note.find(params[:id])
+    @note = @user.notes.find(params[:id])
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to note_path(@note), notice: 'Note was successfully updated.' }
+        format.html { redirect_to user_note_path(@user, @note), notice: 'Note was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -74,11 +74,11 @@ class NotesController < PrivateController
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
-    @note = Note.find(params[:id])
-    @note.destroy
+    @note = @user.notes.find(params[:id])
+    @note.destroy 
 
     respond_to do |format|
-      format.html { redirect_to notes_path }
+      format.html { redirect_to user_notes_path(@user) }
       format.json { head :no_content }
     end
   end

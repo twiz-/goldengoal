@@ -29,7 +29,7 @@
     </p>
     <p>
       <b>Youtube Link:</b>
-      <% if @note.link.empty? %>
+      <% if @note.link.blank? %>
        <p><em>No video included</em></p>
       <% else %>
         <%= youtube_embed(@note.link).html_safe %>
@@ -39,6 +39,6 @@
 </div>
 
 
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<%= link_to 'Edit', edit_user_note_path(@user, @note) %> |
+<%= link_to 'Back', user_notes_path(@user) %>
 
