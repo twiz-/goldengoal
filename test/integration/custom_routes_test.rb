@@ -19,6 +19,7 @@ class CustomRoutesTest < ActionDispatch::IntegrationTest
   end
   
   test "that a profile page works" do 
+    pending "I'm not sure profile page should be public" 
     get '/tmacram'
     assert_response :success
   end 

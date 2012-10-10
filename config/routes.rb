@@ -10,7 +10,7 @@ Goldengoal::Application.routes.draw do
   
   root :to => 'front#index'
   
-  resources :users, path: '', only: [:show] do
+  resources :users, path: '', controller: 'profiles', only: [:show] do
     resources :players
     resources :logistics
     resources :notes
