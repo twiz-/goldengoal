@@ -1,5 +1,5 @@
 class Logistic < ActiveRecord::Base
-  attr_accessible :content, :user_id, :logistic_title
+  attr_accessible :content, :logistic_title
   
   belongs_to :user
   

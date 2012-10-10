@@ -14,8 +14,8 @@
     <% if @notes_by_date[date] %>
      <ul>
       <% @notes_by_date[date].each do |note| %>
-        <li><%= link_to note.user.full_name, note %>
-              <i class="icon-trash"><%= link_to "delete", note, method: :delete, data: { confirm: "are you sure you want to delete note?"}, class: "btn-mini close pull-left" %></i>
+        <li><%= link_to note.user.full_name, [@user, note] %>
+              <i class="icon-trash"><%= link_to "delete", [ @user, note ], method: :delete, data: { confirm: "are you sure you want to delete note?"}, class: "btn-mini close pull-left" %></i>
 
         </li>
       <% end %>

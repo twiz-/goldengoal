@@ -1,10 +1,6 @@
-<%= simple_form_for(@logistic, html: {class: "form-horizontal"} ) do |f| %>
+<%= simple_form_for([@user, @logistic], html: {class: "form-horizontal"} ) do |f| %>
   <%= f.error_notification %>
 
-    <div class="field">
-     <%= f.input :user_id, collection: User.all, label_method: :full_name %>
-    </div>
-    
     <%= f.input :logistic_title, :label => "Practice, Game, or Etc.", :collection => ["Practice","Game", "Etc."], :selected => "Practice" %>
     
     <div class="field"> 

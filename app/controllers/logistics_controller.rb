@@ -45,7 +45,9 @@ class LogisticsController < PrivateController
 
     respond_to do |format|
       if @logistic.save
-        format.html { redirect_to logistic_path(@logistic), notice: 'Logistic was successfully created.' }
+        format.html { redirect_to user_logistic_path(@user, @logistic),
+          notice: 'Logistic was successfully created.' }
+
         format.json { render json: @logistic, status: :created, location: @logistic }
       else
         format.html { render action: "new" }
@@ -61,7 +63,7 @@ class LogisticsController < PrivateController
 
     respond_to do |format|
       if @logistic.update_attributes(params[:logistic])
-        format.html { redirect_to logistic_path(@logistic), notice: 'Logistic was successfully updated.' }
+        format.html { redirect_to user_logistic_path(@user, @logistic), notice: 'Logistic was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,7 +79,7 @@ class LogisticsController < PrivateController
     @logistic.destroy
 
     respond_to do |format|
-      format.html { redirect_to logistics_path }
+      format.html { redirect_to user_logistics_path(@user) }
       format.json { head :no_content }
     end
   end

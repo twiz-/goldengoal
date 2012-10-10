@@ -9,9 +9,9 @@
           <% if logistic.logistic_title == "Practice" %><br>
            <strong><%= logistic.user.full_name %></strong>
            <%= logistic.content %><br>
-           <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %> |
-           <%= link_to "Edit", edit_logistic_path(logistic) %> |
-           <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %> 
+           <%= link_to time_ago_in_words(logistic.created_at) + " ago", [@user, logistic ] %> |
+           <%= link_to "Edit", edit_user_logistic_path(@user, logistic) %> |
+           <%= link_to "Remove", [@user, logistic ], method: :delete, data: { confirm: "Remove? This action cannot be undone."} %> 
          <% else %>
          <% end %> 
        <% end %>
@@ -22,9 +22,9 @@
          <% if logistic.logistic_title == "Game" %><br>
           <strong><%= logistic.user.full_name %></strong>
           <%= logistic.content %><br>
-          <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %> |
-          <%= link_to "Edit", edit_logistic_path(logistic) %> |
-          <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %> 
+          <%= link_to time_ago_in_words(logistic.created_at) + " ago", [@user, logistic ] %> |
+          <%= link_to "Edit", edit_user_logistic_path(@user, logistic) %> |
+          <%= link_to "Remove", [ @user, logistic ], method: :delete, data: { confirm: "Remove? This action cannot be undone."} %> 
         <% else %>
         <% end %> 
       <% end %>
@@ -36,8 +36,8 @@
           <strong><%= logistic.user.full_name %></strong>
           <%= logistic.content %><br>
           <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %> |
-          <%= link_to "Edit", edit_logistic_path(logistic) %> |
-          <%= link_to "Remove", logistic, method: :delete, data: { confirm: "Remove? This action cannot be undone."} %> 
+          <%= link_to "Edit", edit_user_logistic_path(@user, logistic) %> |
+          <%= link_to "Remove", [@user, logistic], method: :delete, data: { confirm: "Remove? This action cannot be undone."} %> 
         <% else %>
         <% end %> 
       <% end %>
@@ -45,5 +45,5 @@
   </div>
 </div>
 
-<%= link_to 'New Logistic', new_logistic_path, class: "btn"%>
+<%= link_to 'New Logistic', new_user_logistic_path(@user), class: "btn"%>
 <!-- add a tag field to the form of either practice, game, or etc then use an if conditional to check that tag and to display otherwise don't display anything -->
