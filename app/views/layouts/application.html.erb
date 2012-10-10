@@ -14,9 +14,9 @@
 
       <% if user_signed_in? %>
         <ul class="nav">
-          <li><%= link_to "Players", profile_players_path(current_user.profile_name) %></li>
-          <li><%= link_to "Coach Notes", profile_notes_path(current_user.profile_name) %></li>
-          <li><%= link_to "Logisitics", profile_logistics_path(current_user.profile_name) %></li>
+          <li><%= link_to "Players", user_players_path(current_user.profile_name) %></li>
+          <li><%= link_to "Coach Notes", user_notes_path(current_user.profile_name) %></li>
+          <li><%= link_to "Logisitics", user_logistics_path(current_user.profile_name) %></li>
         </ul>
         <ul class="nav pull-right">
           <li><%= link_to current_user.full_name, edit_user_registration_path %></li>

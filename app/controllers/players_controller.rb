@@ -1,4 +1,5 @@
 class PlayersController < PrivateController
+
   
   # GET /players
   # GET /players.json
@@ -45,7 +46,7 @@ class PlayersController < PrivateController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to player_path(@player), notice: 'Player was successfully created.' }
+        format.html { redirect_to [@user, @player], notice: 'Player was successfully created.' }
         format.json { render json: @player, status: :created, location: @player }
       else
         format.html { render action: "new" }
@@ -61,7 +62,7 @@ class PlayersController < PrivateController
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
+        format.html { redirect_to [@user, @player], notice: 'Player was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,7 +78,7 @@ class PlayersController < PrivateController
     @player.destroy
 
     respond_to do |format|
-      format.html { redirect_to players_path }
+      format.html { redirect_to [@user, :players] }
       format.json { head :no_content }
     end
   end

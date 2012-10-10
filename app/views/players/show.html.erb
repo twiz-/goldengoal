@@ -5,8 +5,8 @@
 </h2>
 <aside>
   <div class="affix btn-grp">
-    <button class="btn"><%= link_to 'Edit Player', edit_player_path(@player) %></button>
-    <button class="btn"><%= link_to 'Back to Team', players_path %></button>
+    <button class="btn"><%= link_to 'Edit Player', [:edit, @user, @player] %></button>
+    <button class="btn"><%= link_to 'Back to Team', [@user, :players] %></button>
     
   </div>
 </aside>  

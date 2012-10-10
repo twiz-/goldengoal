@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<button class="btn"><%= link_to 'Show', @player %></button>
-<button class="btn"><%= link_to 'Back', players_path %></button>
+<button class="btn"><%= link_to 'Show', [@user, @player] %></button>
+<button class="btn"><%= link_to 'Back', user_players_path(@user) %></button>

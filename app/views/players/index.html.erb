@@ -10,15 +10,15 @@
   <% else %>
     <% @players.each do |player| %>
      <div class="well player_index span3">
-        <%= link_to player.player_name, player %><br>
-        <%= link_to 'Edit', edit_profile_player_path(current_user.profile_name, player) %> | 
+        <%= link_to player.player_name, [@user, player] %><br>
+        <%= link_to 'Edit', edit_user_player_path(@user, player) %> | 
 
-        <%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', [@user, player], method: :delete, data: { confirm: 'Are you sure?' } %>
       
       <hr />
      </div>
     <% end %>
   <% end %>
 </div>
-<span class='btn affix'><%= link_to 'Add Player', new_player_path %></span>
+<span class='btn affix'><%= link_to 'Add Player', new_user_player_path(@user) %></span>
 

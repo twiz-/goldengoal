@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  attr_accessible :player_name, :user_id
+  attr_accessible :player_name
   
   belongs_to :user
   
@@ -8,7 +8,4 @@ class Player < ActiveRecord::Base
                         
                         
   validates :user_id, presence: true                        
-                          
-                          
-                          
 end

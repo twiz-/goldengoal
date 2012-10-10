@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   
-  include RoutingHelper 
-
   protect_from_forgery
 
   protected
