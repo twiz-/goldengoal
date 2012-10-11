@@ -5,9 +5,6 @@
 
 
 <div class="span12 offset1">
-  <% if @players.empty? %>
-   <a href="#">Add your players</a>
-  <% else %>
     <% @players.each do |player| %>
      <div class="well player_index span3">
         <%= link_to player.player_name, [@user, player] %><br>
@@ -18,7 +15,6 @@
       <hr />
      </div>
     <% end %>
-  <% end %>
 </div>
 <span class='btn affix'><%= link_to 'Add Player', new_user_player_path(@user) %></span>
 

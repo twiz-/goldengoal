@@ -35,7 +35,7 @@
          <% if logistic.logistic_title == "Etc." %><br>
           <strong><%= logistic.user.full_name %></strong>
           <%= logistic.content %><br>
-          <%= link_to time_ago_in_words(logistic.created_at) + " ago", logistic %> |
+          <%= link_to time_ago_in_words(logistic.created_at) + " ago", [@user, logistic] %> |
           <%= link_to "Edit", edit_user_logistic_path(@user, logistic) %> |
           <%= link_to "Remove", [@user, logistic], method: :delete, data: { confirm: "Remove? This action cannot be undone."} %> 
         <% else %>
