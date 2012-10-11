@@ -35,7 +35,9 @@ class LogisticsControllerTest < ActionController::TestCase
     sign_in @user
     
     assert_difference('Logistic.count') do
-      post :create, logistic: { content: @logistic.content }, user_id: @user.to_param
+      post :create, 
+        logistic: { content: 'content' , logistic_title: 'title' },
+        user_id: @user.to_param
     end
 
     assert_redirected_to user_logistic_path(@user, assigns(:logistic))
@@ -67,7 +69,8 @@ class LogisticsControllerTest < ActionController::TestCase
 
   test "should update logistic when logged in" do
     sign_in @user
-    put :update, id: @logistic, logistic: { content: @logistic.content }, user_id: @user.to_param
+    put :update, id: @logistic, 
+      logistic: { content: @logistic.content, logistic_title: 'title' }, user_id: @user.to_param
     assert_redirected_to user_logistic_path(@user, assigns(:logistic))
   end
 
