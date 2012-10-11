@@ -3,9 +3,9 @@
 </div>
 
 <div>
-  <span class="well span3">View All my <%= link_to "Players", players_path%></span>
-  <span class="well span3">View All my <%= link_to "Note", notes_path%></span>
-  <span class="well span3">View All my <%= link_to "Logistics", logistics_path%></span>
+  <span class="well span3">View All my <%= link_to "Players", user_players_path(@user) %></span>
+  <span class="well span3">View All my <%= link_to "Note", user_notes_path(@user) %></span>
+  <span class="well span3">View All my <%= link_to "Logistics", user_logistics_path(@user) %></span>
 
 </div>
 
