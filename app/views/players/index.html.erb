@@ -9,12 +9,23 @@
      <div class="well player_index span3">
         <%= link_to player.player_name, [@user, player] %><br>
         <%= link_to 'Edit', edit_user_player_path(@user, player) %> | 
-
         <%= link_to 'Destroy', [@user, player], method: :delete, data: { confirm: 'Are you sure?' } %>
+              <hr />
+        <div class="playergage" id="smallbuddy" style="width:100px; height:80px"></div>
       
-      <hr />
+
      </div>
     <% end %>
 </div>
 <span class='btn affix'><%= link_to 'Add Player', new_user_player_path(@user) %></span>
+
+<script>
+  var g = new JustGage({
+    id: "smallbuddy", 
+    value: 67, 
+    min: 0,
+    max: 100,
+    title: "Visitors"
+  }); 
+</script>
 

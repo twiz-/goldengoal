@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
+//= require justgage.1.0.1.min
+//= require raphael.2.1.0.min
 //= require_tree .
